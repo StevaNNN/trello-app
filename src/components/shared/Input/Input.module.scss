@@ -1,0 +1,15 @@
+@import "../../../Theme/sass/abstract/variables";
+
+.input {
+    padding: 0.7rem $db-btn-padding-h;
+    border-radius: $db-btn-border-radius;
+    color: $text-color;
+    font-size: $db-btn-font-size;
+    border: $db-btn-border-width $db-btn-border-style $border-color;
+    outline: none;
+
+    &:focus {
+        border-color: $primary-color;
+        box-shadow: 0 0 2px $primary-color;
+    }
+}

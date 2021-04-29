@@ -1,0 +1,92 @@
+@import "../../../Theme/sass/abstract/variables";
+
+.button {
+    align-items: center;
+    padding: $db-btn-padding-v $db-btn-padding-h;
+    border-radius: $db-btn-border-radius;
+    border: $db-btn-border-width $db-btn-border-style $db-btn-border-color;
+    background-color: $db-btn-bg-color;
+    min-width: $db-btn-min-width;
+    font-family: $db-btn-font-family;
+    font-size: $db-btn-font-size;
+    color: $db-btn-text-color;
+    line-height: $db-btn-line-height;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    outline: none;
+    overflow: visible;
+
+    &:hover,
+    &:active {
+        color: $db-btn-active-hover-text-color;
+        background-color: $db-btn-active-hover-bg-color;
+        border-color: $db-btn-active-hover-border-color;
+    }
+
+    //&:focus {
+    //    border-color: $db-btn-focus-border-color;
+    //    box-shadow: $db-btn-focus-box-shadow;
+    //}
+}
+
+.iconOnly {
+    width: 3.2rem;
+    height: 3.2rem;
+    min-width: 3.2rem;
+    padding: 0;
+    justify-content: center;
+}
+
+.primary {
+    color: $db-btn-primary-text-color;
+    background-color: $db-btn-primary-bg-color;
+    border-color: $db-btn-primary-border-color;
+
+    &:hover,
+    &:active {
+        color: $db-btn-primary-active-hover-text-color;
+        background-color: $db-btn-primary-active-hover-bg-color;
+        border-color: $db-btn-primary-active-hover-border-color;
+    }
+
+    //&:focus {
+    //    outline: 1px solid $white;
+    //    outline-offset: -3px;
+    //}
+}
+
+.icon {
+    margin-right: 1rem;
+    font-size: 1.8rem;
+    height: 1.8rem;
+    width: 1.8rem;
+
+    .iconOnly & {
+        margin: 0;
+    }
+}
+
+.flat {
+    border-color: transparent;
+    background-color: transparent;
+
+    &:hover,
+    &:active {
+        color: $db-btn-primary-active-hover-text-color;
+        background-color: $db-btn-primary-active-hover-bg-color;
+        border-color: $db-btn-primary-active-hover-border-color;
+    }
+}
+
+.rounded {
+    border-radius: 1.6rem;
+}
+
+.block {
+    width: 100%;
+}
+
+.large {
+    font-size: 2rem;
+}

@@ -1,0 +1,12 @@
+@import "../../../Theme/sass/abstract/variables";
+
+.Backdrop {
+    width: 100%;
+    height: 100%;
+    min-height: 100vh;
+    position: fixed;
+    z-index: $db-backdrop-z-index;
+    left: 0;
+    top: 0;
+    background-color: $db-backdrop-bg-color;
+}

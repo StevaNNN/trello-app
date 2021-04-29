@@ -29,3 +29,6 @@ sassdoc
 /.idea
 .idea
 ./idea
+
+/src/components/util.js
+./src/components/util.js
