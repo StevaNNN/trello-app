@@ -1,0 +1,64 @@
+@import "../../theme/sass/abstract/variables";
+
+.wrapper {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(#000, .7);
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dialog {
+    min-width: 50rem;
+    min-height: 30rem;
+    border-radius: $border-radius;
+    background-color: white;
+    box-shadow: 0 0 12px #000;
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem;
+    border-bottom: 1px solid $border-color;
+}
+
+.title {
+    font-size: $font-size-l;
+    font-family: $font-family-semibold;
+}
+
+.body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.footer {
+    border-top: 1px solid $border-color;
+    display: flex;
+    justify-content: flex-end;
+    padding: 1.6rem 2rem;
+}
+
+.button {
+    background-color: $primary-color;
+    border: 0;
+    color: $neutral-color;
+    min-width: 10rem;
+    cursor: pointer;
+    padding: 1rem;
+    border-radius: $border-radius;
+    font-family: $font-family-semibold;
+}
+

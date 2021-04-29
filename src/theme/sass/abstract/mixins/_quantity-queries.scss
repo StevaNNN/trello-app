@@ -1,0 +1,159 @@
+/// @name respond-above
+/// @author Stevan Stojanovic
+/// @group mixins
+/// @require {map} $breakpoints
+/// @require {variable} $breakpoint
+/// @require {variable} $breakpoint-value
+/// @param   {map}      $map  [$breakpoints] provide a map of breakpoints
+/// @param   {string}   $breakpoint provide property from $breakpoints map (xs, sm, md, lg)
+/// @param   {string}   $breakpoint-value provide value from $breakpoints map (576px, 768px, 992px, 1200px)
+/// @example
+///     INPUT:
+///     .some-class {
+///        @include respond-above(s) {
+///          font-size: 10px
+///        }
+///     }
+///     OUTPUT:
+///     @media (min-width: 767px) {
+///        .some-class {
+///            font-size: 10px
+///        }
+///     }
+@mixin respond-above($breakpoint) {
+
+    // If the breakpoint exists in the map.
+    @if map-has-key($breakpoints, $breakpoint) {
+
+        // Get the breakpoint value.
+        $breakpoint-value: map-get($breakpoints, $breakpoint);
+
+        // Write the media query.
+        @media (min-width: $breakpoint-value) {
+            @content;
+        }
+
+        // If the cutom breakpoint not from map.
+    } @else if(is-number($breakpoint)) {
+        // Write the media query.
+        @media (max-width: ($breakpoint - 1)) {
+            @content;
+        }
+        // If the breakpoint doesn't exist in the map.
+    } @else {
+
+        // Log a warning.
+        @warn 'Invalid breakpoint: #{$breakpoint}.';
+    }
+}
+
+/// @name respond-below
+/// @author Stevan Stojanovic
+/// @group mixins
+/// @require {map} $breakpoints
+/// @require {variable} $breakpoint
+/// @require {variable} $$breakpoint-value
+/// @param   {map}      $map  [$breakpoints] provide a map of breakpoints
+/// @param   {string}   $breakpoint provide property from $breakpoints map (xs, sm, md, lg)
+/// @param   {string}   $breakpoint-value provide value from $breakpoints map (576px, 768px, 992px, 1200px)
+/// @example
+///     INPUT:
+///     .some-class {
+///        @include respond-below(s) {
+///          font-size: 10px
+///        }
+///     }
+///     OUTPUT:
+///     @outputs
+///     @media (max-width: 767px) {
+///        .some-class {
+///            font-size: 10px
+///        }
+///     }
+@mixin respond-below($breakpoint: null) {
+
+    // If the breakpoint exists in the map.
+    @if map-has-key($breakpoints, $breakpoint) {
+
+        // Get the breakpoint value.
+        $breakpoint-value: map-get($breakpoints, $breakpoint);
+
+        // Write the media query.
+        @media (max-width: ($breakpoint-value - 1)) {
+            @content;
+        }
+
+        //If the cutom breakpoint not from map.
+    } @else if(is-number($breakpoint)) {
+
+        // Write the media query.
+        @media (max-width: ($breakpoint - 1)) {
+            @content;
+        }
+
+        // If the breakpoint doesn't exist in the map.
+    }   @else {
+
+        // Log a warning.
+        @warn 'Invalid breakpoint: #{$breakpoint}.';
+    }
+}
+
+/// @name respond-between
+/// @author Stevan Stojanovic
+/// @group mixins
+/// @require {map} $breakpoints
+/// @require {variable} $breakpoint
+/// @require {variable} $$breakpoint-value
+/// @require {variable} $lower
+/// @require {variable} $upper
+/// @param   {map}      $map  [$breakpoints] provide a map of breakpoints
+/// @param   {string}   $breakpoint provide property from $breakpoints map (xs, sm, md, lg)
+/// @param   {string}   $breakpoint-value provide value from $breakpoints map (576px, 768px, 992px, 1200px)
+/// @param   {string}   $lower provide lower breakpoint from $breakpoints map (xs, sm, md, lg)
+/// @param   {string}   $upper provide upper breakpoint from $breakpoints map (xs, sm, md, lg)
+/// @example
+///     INPUT
+///     .some-class {
+///        @include respond-between(sm, m) {
+///          font-size: 10px
+///        }
+///     }
+///     OUTPUT:
+///     @media (min-width: 767px) and (max-width: 879px) {
+///         .some-class {
+///             font-size: 10px
+///         }
+///     }
+@mixin respond-between($lower, $upper) {
+
+    // If both the lower and upper breakpoints exist in the map.
+    @if map-has-key($breakpoints, $lower) and map-has-key($breakpoints, $upper) {
+
+        // Get the lower and upper breakpoints.
+        $lower-breakpoint: map-get($breakpoints, $lower);
+        $upper-breakpoint: map-get($breakpoints, $upper);
+
+        // Write the media query.
+        @media (min-width: $lower-breakpoint) and (max-width: ($upper-breakpoint - 1)) {
+            @content;
+        }
+
+        // If one or both of the breakpoints don't exist.
+    } @else {
+
+        // If lower breakpoint is invalid.
+        @if (map-has-key($breakpoints, $lower) == false) {
+
+            // Log a warning.
+            @warn 'Your lower breakpoint was invalid: #{$lower}.';
+        }
+
+        // If upper breakpoint is invalid.
+        @if (map-has-key($breakpoints, $upper) == false) {
+
+            // Log a warning.
+            @warn 'Your upper breakpoint was invalid: #{$upper}.';
+        }
+    }
+}

@@ -1,0 +1,155 @@
+//--------------------------------------------------------------------------------------------------------------------//
+//                                      THEME GLOBAL VARIABLES                                                        //
+//--------------------------------------------------------------------------------------------------------------------//
+/// App Global prefix
+/// @group app-config
+$prefix: 't-' !default;
+/// App font path
+/// @group app-config
+$fonts-path:            'resources/fonts/' !default;
+/// App imgs path
+/// @group app-config
+$imgs-path:             'resources/imgs/' !default;
+/// App icon path
+/// @group app-config
+$icon-path:             'resources/icons/' !default;
+//--------------------------------------------------------------------------------------------------------------------//
+/// A map of breakpoints
+/// @group app-config
+$breakpoints: (
+        xs: 576px,
+        sm: 768px,
+        md: 992px,
+        lg: 1200px
+);
+//--------------------------------------------------------------------------------------------------------------------//
+//sass-lint:disable space-before-colon
+/// App map of fonts
+/// @group fonts
+$fonts-map: ((
+        'open-sans-regular': (
+                'display': 'fallback',
+                'name'   : 'open-sans-regular',
+                'style'  : 'normal',
+                'weight' : 'normal',
+                'formats': 'ttf'
+        ),
+        'open-sans-semibold': (
+                'display': 'fallback',
+                'name'   : 'open-sans-semibold',
+                'style'  : 'normal',
+                'weight' : 'normal',
+                'formats': 'ttf'
+        ),
+        'open-sans-bold': (
+                'display': 'fallback',
+                'name'   : 'open-sans-bold',
+                'style'  : 'normal',
+                'weight' : 'normal',
+                'formats': 'ttf'
+        ),
+        'open-sans-light-italic': (
+                'display': 'falback',
+                'name'	 : 'open-sans-light-italic',
+                'style'  : 'normal',
+                'weight' : 'normal',
+                'formats': 'ttf'
+        )
+));
+//--------------------------------------------------------------------------------------------------------------------//
+/// App font reference map
+/// @group fonts
+$fonts-reference-map: (
+        'open-sans':              ('open-sans-regular',      'Helvetica Neue', sans-serif),
+        'open-sans-light-italic': ('open-sans-light-italic', 'Helvetica Neue', sans-serif),
+        'open-sans-semibold':     ('open-sans-semibold',     'Helvetica Neue', sans-serif),
+        'open-sans-bold':         ('open-sans-bold',         'Helvetica Neue', sans-serif)
+) !default;
+//--------------------------------------------------------------------------------------------------------------------//
+/// App font family
+/// @group fonts
+$font-family:           		map-get($fonts-reference-map, open-sans) !default;
+/// App font family semibold
+/// @group fonts
+$font-family-semibold:  		map-get($fonts-reference-map, open-sans-semibold) !default;
+/// App font family bold
+/// @group fonts
+$font-family-bold:      		map-get($fonts-reference-map, open-sans-bold) !default;
+/// App font family light italic
+/// @group fonts
+$font-family-light-italic:      map-get($fonts-reference-map, open-sans-light-italic) !default;
+//--------------------------------------------------------------------------------------------------------------------//
+/// App font size xs
+/// @group fonts
+$font-size-xs:          1rem !default;
+/// App font size sm
+/// @group fonts
+$font-size-sm:          1.2rem !default;
+/// App font size
+/// @group fonts
+$font-size:             1.4rem !default;
+/// App font size m
+/// @group fonts
+$font-size-m:           1.6rem !default;
+/// App font size l
+/// @group fonts
+$font-size-l:           1.8rem !default;
+/// App font size xl
+/// @group fonts
+$font-size-lg:          2rem !default;
+//--------------------------------------------------------------------------------------------------------------------//
+/// App transition duration
+/// @group app-config
+$transition-duration: 150ms !default;
+/// App transition type
+/// @group app-config
+$transition-animation: ease-in-out !default;
+/// App transition
+/// @group app-config
+$transition: transition(color), transition(background-color), transition(border-color), transition(box-shadow) !default;
+//--------------------------------------------------------------------------------------------------------------------//
+$user-select-list: none, all, text !default;
+//--------------------------------------------------------------------------------------------------------------------//
+$heading-margin-bottom: 8px !default;
+$border-radius: .4rem  !default;
+// COLORS
+$white: #fff !default;
+$black: #000 !default;
+$primary-color: #026aa7 !default;
+$text-color: #172b4d !default;
+$neutral-color: #f4f5f7 !default;
+$border-color: lightgrey !default;
+// ICONS
+$icon-font-family: 'Material Icons' !default;
+$icons-font-size: 2.4rem !default;
+// BUTTONS
+$t-btn-font-family: $font-family-semibold !default;
+$t-btn-font-size: $font-size !default;
+$t-btn-line-height: 1.3 !default;
+$t-btn-border-radius: $border-radius !default;
+$t-btn-min-width: 10rem !default;
+$t-btn-padding-h: 1.2rem !default;
+$t-btn-padding-v: .6rem !default;
+$t-btn-border-width: 1px !default;
+$t-btn-border-style: solid !default;
+
+// DEFAULT BUTTONS
+$t-btn-text-color: $primary-color !default;
+$t-btn-bg-color: $neutral-color !default;
+$t-btn-border-color: $border-color !default;
+// DEFAULT ACTIVE HOVER BUTTONS
+$t-btn-active-hover-text-color: lighten($t-btn-text-color, 10%) !default;
+$t-btn-active-hover-bg-color: darken($t-btn-bg-color, 5%)!default;
+$t-btn-active-hover-border-color: darken($t-btn-border-color, 5%) !default;
+// DEFAULT FOCUS BUTTONS
+$t-btn-focus-box-shadow: 0 0 2px $primary-color !default;
+$t-btn-focus-border-color: $primary-color !default;
+
+// PRIMARY BUTTONS
+$t-btn-primary-text-color: $neutral-color !default;
+$t-btn-primary-bg-color: $primary-color !default;
+$t-btn-primary-border-color: $primary-color !default;
+// PRIMARY ACTIVE HOVER BUTTONS
+$t-btn-primary-active-hover-text-color: $white !default;
+$t-btn-primary-active-hover-bg-color: darken($t-btn-primary-bg-color, 5%) !default;
+$t-btn-primary-active-hover-border-color: darken($t-btn-primary-border-color, 5%) !default;

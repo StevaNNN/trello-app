@@ -1,0 +1,8 @@
+@import "../../theme/sass/abstract/variables";
+
+.lists {
+    display: flex;
+    background-color: $neutral-color;
+    color: $text-color;
+    padding: 1rem
+}

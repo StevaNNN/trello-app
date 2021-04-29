@@ -1,0 +1,49 @@
+@import "../../theme/sass/abstract/variables";
+
+.listItem {
+    max-width: 30rem;
+    min-width: 30rem;
+    box-shadow: 0 0 3px $border-color;
+    border-radius: $border-radius;
+    overflow: hidden;
+
+    &:not(:last-of-type) {
+        margin-right: 1rem;
+    }
+
+    h3 {
+        margin: 0
+    }
+}
+
+.cardList {
+    overflow-y: auto;
+    height: calc(100% - 70px);
+    padding: 1rem;
+}
+
+.cardListHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    box-shadow: 0 2px 3px $border-color;
+}
+
+.actionWrap {
+    align-items: center;
+    display: flex;
+
+    button:first-of-type {
+        margin-right: 1rem;
+    }
+}
+
+.createNewCardButton {
+    margin-top: 1rem;
+}
+
+.listTitle {
+    max-width: calc(100% - 8rem);
+    word-break: break-word;
+}

@@ -1,0 +1,79 @@
+/// helper-classes function for parsing correct value to the content property
+/// @name content
+/// @group functions
+/// @author Stevan Stojanovic
+@function content($tp-var) {
+    // sass-lint:disable quotes
+    @return unquote("\"#{$tp-var}\"");
+}
+
+/// @name ui-suffix
+/// @author Stevan Stojanovic
+/// @group functions
+/// @param {string} $ui quoted or unquoted
+/// returns nothing if ui is set to null, and -#{$ui} if not
+
+@function ui-suffix($ui) {
+    @return if($ui == null, '', '-' + $ui);
+}
+
+/// @name t-is-number
+/// @author Stevan Stojanovic
+/// @group functions
+/// @param {string,string} $value quoted or unquoted
+/// returns true if the $value is type of number
+@function t-is-number($value) {
+    @return type-of($value) == 'number';
+}
+
+/// t map deep get
+/// @author Stevan Stojanovic
+/// @group functions
+/// @access public
+/// @param {Map} $map - Map
+/// @param {Arglist} $keys - Key chain
+/// @return {*} - Desired value
+@function map-deep-get($map, $keys...) {
+    @each $key in $keys {
+        $map: map-get($map, $key);
+    }
+    @return $map;
+}
+
+/// user-select classes
+/// @author Stevan Stojanovic
+/// @group functions
+/// @access public
+/// @require {variable} $user-select-list
+/// @return {CSS classes} Classes based on the list provided
+@each $user-select in $user-select-list {
+    .#{$prefix}user-select-#{$user-select} {
+        -moz-user-select: $user-select;
+        -webkit-user-select: $user-select;
+        -ms-user-select: $user-select;
+        user-select: $user-select;
+    }
+}
+
+/// transition
+/// @author Stevan Stojanovic
+/// @group functions
+/// @access public
+/// @require {variable} $transition-duration
+/// @require {variable} $transition-animation
+/// @return {CSS property} css transition property if you want to use multiple transition just call this fn as many
+/// times as you need with comma separation
+/// @example
+///    .test { transition: transition(background-color), transition(color, 400ms, linear, 200ms); }
+///
+///     will result in:
+///
+///       .test { transition: background-color 200ms ease-in-out, color 400ms linear 200ms}
+@function transition(
+    $css-property,
+    $transition-duration: $transition-duration,
+    $transition-animation: $transition-animation,
+    $transition-delay: null) {
+
+    @return $css-property $transition-duration $transition-animation $transition-delay;
+}
