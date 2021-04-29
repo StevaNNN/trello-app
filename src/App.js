@@ -5,7 +5,7 @@ import Dialog from "./components/dialog/Dialog";
 import LoadingPage from  "./components/loading-page/LoadingPage";
 
 import { API_TOKEN, API_KEY, BASE_URL } from "./components/util";
-import Input from "./components/shared/input/Input";
+import Input from "./components/shared/Input/Input";
 
 class App extends Component{
 

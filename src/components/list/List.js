@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import classes from './List.module.scss';
 import Card from "../card/Card";
 import { API_TOKEN, API_KEY, BASE_URL } from "../util";
-import Button from "../shared/button/Button";
-import Input from "../shared/input/Input";
+import Button from "../shared/Button/Button";
+import Input from "../shared/Input/Input";
 import Dialog from "../dialog/Dialog";
 
 class List extends Component {

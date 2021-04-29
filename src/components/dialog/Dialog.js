@@ -1,7 +1,7 @@
 import React, { Component }from "react";
 import ReactDOM from 'react-dom';
 import classes from './Dialog.module.scss';
-import Button from "../shared/button/Button";
+import Button from "../shared/Button/Button";
 
 class Dialog extends Component {
 

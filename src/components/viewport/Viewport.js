@@ -1,7 +1,7 @@
 import React from 'react';
 import classes from './Viewport.module.scss';
 import Lists from "../lists/Lists";
-import Button from "../shared/button/Button";
+import Button from "../shared/Button/Button";
 
 const Viewport = (props) => {
 
